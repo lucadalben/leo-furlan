@@ -118,6 +118,33 @@ a {
   padding-top: 70px; /* clearance per la navbar fixed */
 }
 
+.sort-bar {
+  display: flex;
+  gap: 2vw;
+  padding: 0 5vw 1vw;
+}
+
+.sort-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1vw;
+  cursor: pointer;
+  color: black;
+  padding: 0;
+  transition: 0.2s;
+}
+
+.sort-btn:hover {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.sort-btn--active {
+  font-style: italic;
+  color: var(--blue);
+}
+
 .box {
   display: flex;
   justify-content: center;
@@ -327,6 +354,15 @@ a {
 
   #container3D {
     display: none;
+  }
+
+  .sort-bar {
+    gap: 5vw;
+    padding: 0 5vw 3vw;
+  }
+
+  .sort-btn {
+    font-size: 3.5vw;
   }
 
   .box-link {
