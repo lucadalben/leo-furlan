@@ -75,13 +75,22 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
       mouseY = e.clientY;
     }
 
+    function onTouchMove(e: TouchEvent) {
+      if (e.touches.length === 1) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+      }
+    }
+
     window.addEventListener("resize", onResize);
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
 
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("touchmove", onTouchMove);
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }

@@ -135,7 +135,8 @@ export default function ArtworkModal({ artwork, onClose }: Props) {
         style={{
           position: "relative",
           width: "100vw",
-          height: "97vh",
+          flex: 1,
+          minHeight: 0,
           cursor: zoom > 1 ? "zoom-out" : hasSlideshow ? "grab" : "zoom-in",
           touchAction: "pan-y",
         }}

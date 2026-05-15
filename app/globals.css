@@ -228,7 +228,6 @@ a {
   z-index: 100;
   background-color: #000000;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #ffffff;
@@ -310,6 +309,10 @@ a {
     line-height: 5vw;
   }
 
+  /* avvicina Works a Leonardo Furlan */
+  #name.navbar  { padding-right: 4px; }
+  #works.navbar { padding-left: 4px; }
+
   .home-container {
     display: flex;
     flex-wrap: wrap;
@@ -331,19 +334,16 @@ a {
     flex-direction: column;
   }
 
-  #container3D {
-    display: none;
-  }
-
   .box-link {
     padding: 10vw;
   }
 
-  .nano   { height: auto; width: 20vw; }
-  .micro  { height: auto; max-width: 30vw; }
-  .small  { height: auto; max-width: 40vw; }
-  .medium { height: auto; max-width: 50vw; }
-  .mega   { height: auto; max-width: 60vw; }
+  /* opere +20% su mobile */
+  .nano   { height: auto; width: 24vw; }
+  .micro  { height: auto; max-width: 36vw; }
+  .small  { height: auto; max-width: 48vw; }
+  .medium { height: auto; max-width: 60vw; }
+  .mega   { height: auto; max-width: 72vw; }
 
   .img-wrap img {
     width: 100%;
@@ -357,6 +357,18 @@ a {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  /* contacts: stessa dimensione di education/exhibitions su mobile */
+  .column-wrap-date,
+  .column-wrap-activity,
+  #contacts a {
+    font-size: 3.5vw;
+    line-height: 5vw;
+  }
+
+  /* periodo: più spazio per non sovrapporsi alla descrizione */
+  .column-wrap-date     { width: 32%; }
+  .column-wrap-activity { width: 68%; }
 }
 
 @media (max-width: 1000px) {
@@ -374,7 +386,7 @@ a {
   .bio-full {
     font-size: 5vw;
     line-height: 5.5vw;
-    margin-top: 4vh;
+    margin-top: 8vh;
     padding-bottom: 2vh;
   }
 
@@ -382,6 +394,14 @@ a {
     position: relative;
     flex-direction: column;
     padding-top: 40px;
+  }
+
+  /* contacts: stessa dimensione di education/exhibitions (desktop fix) */
+  .column-wrap-date,
+  .column-wrap-activity,
+  #contacts a {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
