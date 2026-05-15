@@ -6,7 +6,7 @@ export const artworkSchema = defineType({
   title: "Artwork",
   type: "document",
   fields: [
-    orderRankField({ schemaType: "artwork" }),
+    orderRankField({ type: "string" }),
     defineField({
       name: "title",
       title: "Title",
