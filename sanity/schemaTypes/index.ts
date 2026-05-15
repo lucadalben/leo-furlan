@@ -1,5 +1,7 @@
 import { artworkSchema } from "./artwork";
-import { siteSettingsSchema } from "./siteSettings";
+import { homepageSchema } from "./homepage";
+import { worksPageSchema } from "./worksPage";
 import { aboutSchema } from "./about";
+import { siteSettingsSchema } from "./siteSettings";
 
-export const schemaTypes = [artworkSchema, siteSettingsSchema, aboutSchema];
+export const schemaTypes = [artworkSchema, homepageSchema, worksPageSchema, aboutSchema, siteSettingsSchema];

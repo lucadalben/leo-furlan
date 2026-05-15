@@ -3,17 +3,19 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { BallSettings } from "@/lib/sanity/queries";
 
-// Rotation range in radians per axis — increase for more sensitivity
-const SENSITIVITY_Y = 3;
-const SENSITIVITY_X = 2.5;
-
-export default function ThreeBall() {
+export default function ThreeBall({ settings }: { settings?: BallSettings }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    const lightColor = settings?.lightColor ?? "#daf5ff";
+    const lightIntensity = settings?.lightIntensity ?? 1;
+    const sensitivityY = settings?.sensitivityY ?? 3;
+    const sensitivityX = settings?.sensitivityX ?? 2.5;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -39,15 +41,15 @@ export default function ThreeBall() {
       scene.add(object);
     });
 
-    scene.add(new THREE.AmbientLight(0xdaf5ff, 1));
+    scene.add(new THREE.AmbientLight(lightColor, lightIntensity));
 
     let animId: number;
 
     function animate() {
       animId = requestAnimationFrame(animate);
       if (object) {
-        object.rotation.y = -1 + (mouseX / window.innerWidth) * SENSITIVITY_Y;
-        object.rotation.x = -1 + (mouseY * SENSITIVITY_X) / window.innerHeight;
+        object.rotation.y = -1 + (mouseX / window.innerWidth) * sensitivityY;
+        object.rotation.x = -1 + (mouseY * sensitivityX) / window.innerHeight;
       }
       renderer.render(scene, camera);
     }
@@ -77,6 +79,7 @@ export default function ThreeBall() {
       }
       renderer.dispose();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div id="container3D" ref={containerRef} />;

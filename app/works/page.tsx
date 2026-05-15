@@ -1,13 +1,13 @@
 import Navbar from "@/components/Navbar";
 import WorksGallery from "@/components/WorksGallery";
 import Footer from "@/components/Footer";
-import { getAllArtworks, getSiteSettings } from "@/lib/sanity/queries";
+import { getAllArtworks, getWorksSort } from "@/lib/sanity/queries";
 
 export const revalidate = 60;
 
 export default async function WorksPage() {
-  const settings = await getSiteSettings();
-  const artworks = await getAllArtworks(settings?.worksSort ?? "manual");
+  const sort = await getWorksSort();
+  const artworks = await getAllArtworks(sort);
 
   return (
     <>

@@ -12,32 +12,35 @@ export default defineConfig({
     structureTool({
       structure: (S, context) =>
         S.list()
-          .title("Contenuti")
+          .title("Studio")
           .items([
-            orderableDocumentListDeskItem({
-              type: "artwork",
-              title: "Opere",
-              S,
-              context,
-            }),
-            S.divider(),
             S.listItem()
-              .title("Pagina Info")
-              .schemaType("about")
+              .title("Pagine")
               .child(
-                S.document()
-                  .schemaType("about")
-                  .documentId("about")
+                S.list()
+                  .title("Pagine")
+                  .items([
+                    S.listItem()
+                      .title("Homepage")
+                      .schemaType("homepage")
+                      .child(S.document().schemaType("homepage").documentId("homepage")),
+                    S.listItem()
+                      .title("Works")
+                      .schemaType("worksPage")
+                      .child(S.document().schemaType("worksPage").documentId("worksPage")),
+                    S.listItem()
+                      .title("Info")
+                      .schemaType("about")
+                      .child(S.document().schemaType("about").documentId("about")),
+                  ])
               ),
             S.divider(),
+            orderableDocumentListDeskItem({ type: "artwork", title: "Opere", S, context }),
+            S.divider(),
             S.listItem()
-              .title("Impostazioni sito")
+              .title("Impostazioni globali")
               .schemaType("siteSettings")
-              .child(
-                S.document()
-                  .schemaType("siteSettings")
-                  .documentId("siteSettings")
-              ),
+              .child(S.document().schemaType("siteSettings").documentId("siteSettings")),
           ]),
     }),
     visionTool(),

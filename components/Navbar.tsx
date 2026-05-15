@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getSiteSettings } from "@/lib/sanity/queries";
+import { getHomepageSettings } from "@/lib/sanity/queries";
 
 export default async function Navbar() {
-  const settings = await getSiteSettings();
+  const settings = await getHomepageSettings();
   const artistName = settings?.artistName ?? "Leonardo Furlan";
 
   return (

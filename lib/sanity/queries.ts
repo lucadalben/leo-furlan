@@ -26,12 +26,24 @@ const artworkFields = `
   order
 `;
 
-type WorksSort = "manual" | "newest" | "oldest";
+export interface BallSettings {
+  lightColor?: string;
+  lightIntensity?: number;
+  sensitivityY?: number;
+  sensitivityX?: number;
+}
 
-export interface SiteSettings {
-  worksSort: WorksSort;
+export interface HomepageSettings {
   artistName?: string;
   tagline?: string;
+  ball?: BallSettings;
+}
+
+export async function getHomepageSettings(): Promise<HomepageSettings | null> {
+  return client.fetch(`*[_type == "homepage"][0]{ artistName, tagline, ball }`);
+}
+
+export interface SiteSettings {
   email?: string;
   phone?: string;
   instagram?: string;
@@ -39,11 +51,16 @@ export interface SiteSettings {
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
-  return client.fetch(
-    `*[_type == "siteSettings"][0]{
-      worksSort, artistName, tagline, email, phone, instagram, instagramUrl
-    }`
+  return client.fetch(`*[_type == "siteSettings"][0]{ email, phone, instagram, instagramUrl }`);
+}
+
+type WorksSort = "manual" | "newest" | "oldest";
+
+export async function getWorksSort(): Promise<WorksSort> {
+  const doc = await client.fetch<{ worksSort?: WorksSort } | null>(
+    `*[_type == "worksPage"][0]{ worksSort }`
   );
+  return doc?.worksSort ?? "manual";
 }
 
 export interface AboutData {
@@ -53,9 +70,7 @@ export interface AboutData {
 }
 
 export async function getAboutPage(): Promise<AboutData | null> {
-  return client.fetch(
-    `*[_type == "about"][0]{ bio, education, exhibitions }`
-  );
+  return client.fetch(`*[_type == "about"][0]{ bio, education, exhibitions }`);
 }
 
 export async function getAllArtworks(sort: WorksSort = "manual"): Promise<Artwork[]> {
