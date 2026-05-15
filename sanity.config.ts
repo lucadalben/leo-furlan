@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { schemaTypes } from "./sanity/schemaTypes";
 
 export default defineConfig({
@@ -9,14 +10,16 @@ export default defineConfig({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   plugins: [
     structureTool({
-      structure: (S) =>
+      structure: (S, context) =>
         S.list()
           .title("Contenuti")
           .items([
-            S.listItem()
-              .title("Opere")
-              .schemaType("artwork")
-              .child(S.documentTypeList("artwork").title("Opere")),
+            orderableDocumentListDeskItem({
+              type: "artwork",
+              title: "Opere",
+              S,
+              context,
+            }),
             S.divider(),
             S.listItem()
               .title("Impostazioni sito")

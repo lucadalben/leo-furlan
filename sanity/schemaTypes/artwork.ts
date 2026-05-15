@@ -1,10 +1,12 @@
 import { defineField, defineType } from "sanity";
+import { defineOrderableDocumentListFields } from "@sanity/orderable-document-list";
 
 export const artworkSchema = defineType({
   name: "artwork",
   title: "Artwork",
   type: "document",
   fields: [
+    ...defineOrderableDocumentListFields(),
     defineField({
       name: "title",
       title: "Title",

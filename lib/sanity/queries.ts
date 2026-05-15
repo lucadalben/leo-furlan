@@ -36,7 +36,7 @@ export async function getAllArtworks(sort: WorksSort = "manual"): Promise<Artwor
   const orderClause =
     sort === "newest" ? "year desc" :
     sort === "oldest" ? "year asc" :
-    "order asc";
+    "orderRank asc";
   return client.fetch(
     `*[_type == "artwork"] | order(${orderClause}) { ${artworkFields} }`
   );
