@@ -31,6 +31,8 @@ export interface BallSettings {
   lightIntensity?: number;
   sensitivityY?: number;
   sensitivityX?: number;
+  ambientColor?: string;
+  ambientIntensity?: number;
 }
 
 export interface HomepageSettings {

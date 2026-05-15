@@ -16,6 +16,8 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
     const lightIntensity = settings?.lightIntensity ?? 1;
     const sensitivityY = settings?.sensitivityY ?? 3;
     const sensitivityX = settings?.sensitivityX ?? 2.5;
+    const ambientColor = settings?.ambientColor ?? "#ffffff";
+    const ambientIntensity = settings?.ambientIntensity ?? 0.5;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -42,6 +44,7 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
     });
 
     scene.add(new THREE.AmbientLight(lightColor, lightIntensity));
+    scene.add(new THREE.AmbientLight(ambientColor, ambientIntensity));
 
     let animId: number;
 
