@@ -11,7 +11,7 @@ export default async function Home() {
   const tagline = settings?.tagline ?? "Italian artist based in Venice (IT).";
 
   return (
-    <main style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <main style={{ position: "relative", width: "100vw", height: "100dvh", overflow: "hidden" }}>
       <ThreeBallWrapper settings={settings?.ball} />
 
       <section className="home-container">
