@@ -1,12 +1,12 @@
 import { defineField, defineType } from "sanity";
-import { defineOrderableDocumentListFields } from "@sanity/orderable-document-list";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export const artworkSchema = defineType({
   name: "artwork",
   title: "Artwork",
   type: "document",
   fields: [
-    ...defineOrderableDocumentListFields(),
+    orderRankField({ schemaType: "artwork" }),
     defineField({
       name: "title",
       title: "Title",
@@ -76,13 +76,7 @@ export const artworkSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
-  orderings: [
-    {
-      title: "Display Order",
-      name: "orderAsc",
-      by: [{ field: "order", direction: "asc" }],
-    },
-  ],
+  orderings: [orderRankOrdering],
   preview: {
     select: {
       title: "title",
