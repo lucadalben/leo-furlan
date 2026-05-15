@@ -138,14 +138,26 @@ a {
   font-family: inherit;
 }
 
-img {
+.img-wrap {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrap img {
   height: 100%;
   object-fit: contain;
   transition: transform 0.15s ease;
 }
 
-img:hover {
+.img-wrap img:hover {
   transform: scale(1.05);
+}
+
+.box-title {
+  font-size: 0.9vw;
+  margin-top: 8px;
 }
 
 .nano   { height: 10vh; }
@@ -321,11 +333,20 @@ img:hover {
     padding: 10vw;
   }
 
-  .nano   { height: 100%; width: 20vw; }
-  .micro  { height: 100%; max-width: 30vw; }
-  .small  { height: 100%; max-width: 40vw; }
-  .medium { height: 100%; max-width: 50vw; }
-  .mega   { height: 100%; max-width: 60vw; }
+  .nano   { height: auto; width: 20vw; }
+  .micro  { height: auto; max-width: 30vw; }
+  .small  { height: auto; max-width: 40vw; }
+  .medium { height: auto; max-width: 50vw; }
+  .mega   { height: auto; max-width: 60vw; }
+
+  .img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+
+  .box-title {
+    font-size: 3vw;
+  }
 
   .footer {
     font-size: 3.5vw;

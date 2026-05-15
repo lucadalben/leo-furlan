@@ -29,13 +29,15 @@ export default function WorksGallery({ artworks }: { artworks: Artwork[] }) {
                 onClick={() => setSelected(artwork)}
                 aria-label={`Visualizza ${artwork.title}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={urlFor(artwork.coverImage).width(1200).url()}
-                  alt={artwork.title}
-                  className={artwork.sizeClass}
-                  loading="lazy"
-                />
+                <div className={`img-wrap ${artwork.sizeClass}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={urlFor(artwork.coverImage).width(1200).url()}
+                    alt={artwork.title}
+                    loading="lazy"
+                  />
+                </div>
+                <span className="box-title">{artwork.title}</span>
               </button>
             </div>
           ))
