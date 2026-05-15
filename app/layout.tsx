@@ -5,7 +5,7 @@ import PageTransition from "@/components/PageTransition";
 export const metadata: Metadata = {
   title: "Leonardo Furlan",
   description: "Italian artist based in Venice",
-  icons: { icon: "/icona.jpg" },
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
