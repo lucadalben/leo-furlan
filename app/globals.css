@@ -139,9 +139,11 @@ a {
   transition: transform 0.2s ease;
 }
 
-.box-link:hover {
-  transform: scale(1.05);
-}
+.box-link:has(.nano):hover  { transform: scale(1.20); }
+.box-link:has(.micro):hover { transform: scale(1.12); }
+.box-link:has(.small):hover { transform: scale(1.07); }
+.box-link:has(.medium):hover { transform: scale(1.04); }
+.box-link:has(.mega):hover  { transform: scale(1.02); }
 
 .img-wrap {
   display: flex;
