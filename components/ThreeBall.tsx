@@ -4,6 +4,10 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
+// Rotation range in radians per axis — increase for more sensitivity
+const SENSITIVITY_Y = 3;
+const SENSITIVITY_X = 2.5;
+
 export default function ThreeBall() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -42,8 +46,8 @@ export default function ThreeBall() {
     function animate() {
       animId = requestAnimationFrame(animate);
       if (object) {
-        object.rotation.y = -1 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1 + (mouseY * 2.5) / window.innerHeight;
+        object.rotation.y = -1 + (mouseX / window.innerWidth) * SENSITIVITY_Y;
+        object.rotation.x = -1 + (mouseY * SENSITIVITY_X) / window.innerHeight;
       }
       renderer.render(scene, camera);
     }

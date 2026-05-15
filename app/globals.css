@@ -57,7 +57,7 @@ a {
 
 .navbar a {
   color: black;
-  font-size: 1vw;
+  font-size: clamp(11px, 1.1vw, 16px);
 }
 
 #name a:hover  { font-style: italic; color: var(--yellow); }
@@ -136,10 +136,14 @@ a {
   background: none;
   border: none;
   font-family: inherit;
+  transition: transform 0.2s ease;
+}
+
+.box-link:hover {
+  transform: scale(1.05);
 }
 
 .img-wrap {
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,16 +152,6 @@ a {
 .img-wrap img {
   height: 100%;
   object-fit: contain;
-  transition: transform 0.15s ease;
-}
-
-.img-wrap img:hover {
-  transform: scale(1.05);
-}
-
-.box-title {
-  font-size: 0.9vw;
-  margin-top: 8px;
 }
 
 .nano   { height: 10vh; }
@@ -201,9 +195,11 @@ a {
   width: 75%;
 }
 
-#bio {
+.bio-full {
   font-size: 2vw;
-  line-height: 2vw;
+  line-height: 2.4vw;
+  margin-top: 4vh;
+  padding-bottom: 4vh;
 }
 
 #category {
@@ -344,10 +340,6 @@ a {
     height: auto;
   }
 
-  .box-title {
-    font-size: 3vw;
-  }
-
   .footer {
     font-size: 3.5vw;
     line-height: 4vw;
@@ -369,9 +361,11 @@ a {
     width: 100%;
   }
 
-  #bio {
+  .bio-full {
     font-size: 5vw;
     line-height: 5.5vw;
+    margin-top: 2vh;
+    padding-bottom: 2vh;
   }
 
   .info-footer {

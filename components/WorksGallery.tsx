@@ -37,7 +37,6 @@ export default function WorksGallery({ artworks }: { artworks: Artwork[] }) {
                     loading="lazy"
                   />
                 </div>
-                <span className="box-title">{artwork.title}</span>
               </button>
             </div>
           ))

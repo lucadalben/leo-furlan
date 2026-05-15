@@ -22,6 +22,15 @@ export default defineConfig({
             }),
             S.divider(),
             S.listItem()
+              .title("Pagina Info")
+              .schemaType("about")
+              .child(
+                S.document()
+                  .schemaType("about")
+                  .documentId("about")
+              ),
+            S.divider(),
+            S.listItem()
               .title("Impostazioni sito")
               .schemaType("siteSettings")
               .child(

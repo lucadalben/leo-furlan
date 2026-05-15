@@ -5,47 +5,46 @@ export default function InfoPage() {
     <>
       <Navbar />
       <section className="info-section">
-        <div className="row">
-          {/* Bio */}
-          <div className="column" id="bio">
-            <p>
-              Leonardo Furlan is an Italian artist born in 1998; he studied
-              painting and graduated at Venice Academy of Fine Arts in 2024.
-            </p>
-            <br />
-            <p>
-              In his paintings, that he makes like iconic apparitions, he brings
-              together multiple interests he&apos;s into, in multiple ways.
-              <br />
-              The paradox of inconsistency and power of originality and banality
-              is for sure a central theme: who and when someone can tell if a
-              work is more original than other ones? Why and how is it
-              important? Leonardo reflects about individual and common life
-              experiences, on the way they, inextricably from each other, create
-              a shared but at the same time personal imaginary.
-            </p>
-          </div>
 
-          {/* CV */}
+        {/* Bio — full width */}
+        <div className="bio-full">
+          <p>
+            Leonardo Furlan is an Italian artist born in 1998; he studied
+            painting and graduated at Venice Academy of Fine Arts in 2024.
+          </p>
+          <br />
+          <p>
+            In his paintings, that he makes like iconic apparitions, he brings
+            together multiple interests he&apos;s into, in multiple ways.
+            <br />
+            The paradox of inconsistency and power of originality and banality
+            is for sure a central theme: who and when someone can tell if a
+            work is more original than other ones? Why and how is it
+            important? Leonardo reflects about individual and common life
+            experiences, on the way they, inextricably from each other, create
+            a shared but at the same time personal imaginary.
+          </p>
+        </div>
+
+        {/* CV — two columns */}
+        <div className="row">
+
+          {/* Education */}
           <div className="column">
             <span id="category">EDUCATION</span>
-            <br />
-            <br />
-            <br />
+            <br /><br /><br />
 
             <div className="column-wrap">
               <div className="column-wrap-date">2021–2024</div>
               <div className="column-wrap-activity">
-                Second level degree [Painting], Accademia di Belle Arti di
-                Venezia
+                Second level degree [Painting], Accademia di Belle Arti di Venezia
               </div>
             </div>
             <br />
             <div className="column-wrap">
               <div className="column-wrap-date">2017–2021</div>
               <div className="column-wrap-activity">
-                First level degree [Painting], Accademia di Belle Arti di
-                Venezia
+                First level degree [Painting], Accademia di Belle Arti di Venezia
               </div>
             </div>
             <br />
@@ -56,30 +55,25 @@ export default function InfoPage() {
                 Munari&rdquo;, Vittorio Veneto
               </div>
             </div>
+          </div>
 
-            <br />
-            <br />
-            <br />
-            <br />
-
+          {/* Exhibitions */}
+          <div className="column">
             <span id="category">EXHIBITIONS</span>
-            <br />
-            <br />
+            <br /><br />
 
             <div className="column-wrap">
               <div className="column-wrap-date">03.2024–04.2024</div>
               <div className="column-wrap-activity">
                 Group exhibit: <em>Happy Ending</em>, curated by Valerio Dehò
-                and TRA Treviso Ricerca Arte, at Galleria L&apos;Elefante,
-                Treviso
+                and TRA Treviso Ricerca Arte, at Galleria L&apos;Elefante, Treviso
               </div>
             </div>
             <br />
             <div className="column-wrap">
               <div className="column-wrap-date">11.2023–11.2024</div>
               <div className="column-wrap-activity">
-                Group exhibit: <em>Hotel-Dieu</em>, presso Galleria A plus A,
-                Venezia
+                Group exhibit: <em>Hotel-Dieu</em>, presso Galleria A plus A, Venezia
               </div>
             </div>
             <br />
@@ -111,8 +105,7 @@ export default function InfoPage() {
               <div className="column-wrap-date">2018–2019</div>
               <div className="column-wrap-activity">
                 Open painting workshop and group exhibit curated by Carlo di
-                Raco and Martino Scavezzon, capannone 35, at Forte Marghera,
-                Venezia
+                Raco and Martino Scavezzon, capannone 35, at Forte Marghera, Venezia
               </div>
             </div>
           </div>
@@ -122,8 +115,7 @@ export default function InfoPage() {
         <div className="footer info-footer">
           <div id="contacts" className="column">
             <span id="category">CONTACTS</span>
-            <br />
-            <br />
+            <br /><br />
             <a id="email" href="mailto:leonardofurlan241@gmail.com">
               leonardofurlan241@gmail.com
             </a>
