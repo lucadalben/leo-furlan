@@ -1,8 +1,15 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ThreeBallWrapper from "@/components/ThreeBallWrapper";
+import { getSiteSettings } from "@/lib/sanity/queries";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const settings = await getSiteSettings();
+  const artistName = settings?.artistName ?? "Leonardo Furlan";
+  const tagline = settings?.tagline ?? "Italian artist based in Venice (IT).";
+
   return (
     <main style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
       <ThreeBallWrapper />
@@ -10,10 +17,10 @@ export default function Home() {
       <section className="home-container">
         <div className="menu">
           <div className="name">
-            <Link href="/">Leonardo Furlan</Link>
+            <Link href="/">{artistName}</Link>
           </div>
           <div className="bio">
-            <span>Italian artist based in Venice (IT).</span>
+            <span>{tagline}</span>
           </div>
           <div className="works">
             <Link href="/works">Works</Link>

@@ -28,8 +28,34 @@ const artworkFields = `
 
 type WorksSort = "manual" | "newest" | "oldest";
 
-export async function getSiteSettings(): Promise<{ worksSort: WorksSort } | null> {
-  return client.fetch(`*[_type == "siteSettings"][0]{ worksSort }`);
+export interface SiteSettings {
+  worksSort: WorksSort;
+  artistName?: string;
+  tagline?: string;
+  email?: string;
+  phone?: string;
+  instagram?: string;
+  instagramUrl?: string;
+}
+
+export async function getSiteSettings(): Promise<SiteSettings | null> {
+  return client.fetch(
+    `*[_type == "siteSettings"][0]{
+      worksSort, artistName, tagline, email, phone, instagram, instagramUrl
+    }`
+  );
+}
+
+export interface AboutData {
+  bio?: string;
+  education?: { period: string; description: string }[];
+  exhibitions?: { period: string; description: string }[];
+}
+
+export async function getAboutPage(): Promise<AboutData | null> {
+  return client.fetch(
+    `*[_type == "about"][0]{ bio, education, exhibitions }`
+  );
 }
 
 export async function getAllArtworks(sort: WorksSort = "manual"): Promise<Artwork[]> {
