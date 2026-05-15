@@ -6,6 +6,14 @@ import { Artwork } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import ArtworkModal from "./ArtworkModal";
 
+const gallerySizes: Record<string, number> = {
+  nano: 300,
+  micro: 500,
+  small: 900,
+  medium: 1400,
+  mega: 2000,
+};
+
 export default function WorksGallery({ artworks, footer }: { artworks: Artwork[]; footer?: React.ReactNode }) {
   const [selected, setSelected] = useState<Artwork | null>(null);
 
@@ -31,7 +39,7 @@ export default function WorksGallery({ artworks, footer }: { artworks: Artwork[]
                 <div className={`img-wrap ${artwork.sizeClass}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={urlFor(artwork.coverImage).width(800).auto("format").quality(80).url()}
+                    src={urlFor(artwork.coverImage).width(gallerySizes[artwork.sizeClass] ?? 800).auto("format").quality(85).url()}
                     alt={artwork.title}
                     loading="lazy"
                   />
