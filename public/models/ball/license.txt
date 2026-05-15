@@ -1,0 +1,8 @@
+Model Information:
+* title:	Volleyball High
+* source:	https://sketchfab.com/3d-models/volleyball-high-73b9737778a24249be9f880f7b1a53cb
+* author:	TheMingo (https://sketchfab.com/LosMingos)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
