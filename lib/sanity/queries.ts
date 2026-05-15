@@ -26,9 +26,19 @@ const artworkFields = `
   order
 `;
 
-export async function getAllArtworks(): Promise<Artwork[]> {
+type WorksSort = "manual" | "newest" | "oldest";
+
+export async function getSiteSettings(): Promise<{ worksSort: WorksSort } | null> {
+  return client.fetch(`*[_type == "siteSettings"][0]{ worksSort }`);
+}
+
+export async function getAllArtworks(sort: WorksSort = "manual"): Promise<Artwork[]> {
+  const orderClause =
+    sort === "newest" ? "year desc" :
+    sort === "oldest" ? "year asc" :
+    "order asc";
   return client.fetch(
-    `*[_type == "artwork"] | order(order asc) { ${artworkFields} }`
+    `*[_type == "artwork"] | order(${orderClause}) { ${artworkFields} }`
   );
 }
 
