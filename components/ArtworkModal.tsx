@@ -59,7 +59,7 @@ export default function ArtworkModal({ artwork, onClose }: Props) {
   useEffect(() => {
     allImages.forEach((img) => {
       const image = new window.Image();
-      image.src = urlFor(img).width(1800).url();
+      image.src = urlFor(img).width(1800).auto("format").quality(85).url();
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -88,7 +88,7 @@ export default function ArtworkModal({ artwork, onClose }: Props) {
     };
   }, []);
 
-  const currentImageUrl = urlFor(allImages[slideIndex]).width(1800).url();
+  const currentImageUrl = urlFor(allImages[slideIndex]).width(1800).auto("format").quality(85).url();
 
   const label = [
     `"${artwork.title}"`,

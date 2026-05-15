@@ -31,7 +31,7 @@ export default function WorksGallery({ artworks, footer }: { artworks: Artwork[]
                 <div className={`img-wrap ${artwork.sizeClass}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={urlFor(artwork.coverImage).width(1200).url()}
+                    src={urlFor(artwork.coverImage).width(800).auto("format").quality(80).url()}
                     alt={artwork.title}
                     loading="lazy"
                   />
