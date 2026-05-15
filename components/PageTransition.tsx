@@ -10,6 +10,10 @@ export default function PageTransition({
 }) {
   const pathname = usePathname();
 
+  if (pathname.startsWith("/studio")) {
+    return <>{children}</>;
+  }
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
