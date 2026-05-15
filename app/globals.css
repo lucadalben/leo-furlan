@@ -292,6 +292,14 @@ a {
 .prev:hover,
 .next:hover { background-color: rgba(0, 0, 0, 0.9); }
 
+/* ─── Tablet ─────────────────────────────────────────────── */
+
+@media (min-width: 700px) and (max-width: 1024px) {
+  .navbar a {
+    font-size: clamp(16px, 2.2vw, 20px);
+  }
+}
+
 /* ─── Mobile ─────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
