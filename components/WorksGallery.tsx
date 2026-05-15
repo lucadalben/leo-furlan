@@ -5,9 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import { Artwork } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import ArtworkModal from "./ArtworkModal";
-import Footer from "./Footer";
 
-export default function WorksGallery({ artworks }: { artworks: Artwork[] }) {
+export default function WorksGallery({ artworks, footer }: { artworks: Artwork[]; footer?: React.ReactNode }) {
   const [selected, setSelected] = useState<Artwork | null>(null);
 
   return (
@@ -43,7 +42,7 @@ export default function WorksGallery({ artworks }: { artworks: Artwork[] }) {
         )}
 
         <div style={{ padding: "200px 20px 20px 20px" }}>
-          <Footer />
+          {footer}
         </div>
       </div>
 
