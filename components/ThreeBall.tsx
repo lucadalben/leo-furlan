@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { BallSettings } from "@/lib/sanity/queries";
 
 export default function ThreeBall({ settings }: { settings?: BallSettings }) {
@@ -29,7 +30,7 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
     camera.position.z = 7;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio * 2);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
@@ -37,8 +38,12 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
 
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("/draco/");
+
     const loader = new GLTFLoader();
-    loader.load("/models/leo_ball/scene.gltf", (gltf) => {
+    loader.setDRACOLoader(dracoLoader);
+    loader.load("/models/leo_ball/scene.glb", (gltf) => {
       object = gltf.scene;
       scene.add(object);
     });
@@ -81,6 +86,7 @@ export default function ThreeBall({ settings }: { settings?: BallSettings }) {
         container.removeChild(renderer.domElement);
       }
       renderer.dispose();
+      dracoLoader.dispose();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
